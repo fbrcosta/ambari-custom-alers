@@ -1,0 +1,3 @@
+# ambari-custom-alers
+
+init

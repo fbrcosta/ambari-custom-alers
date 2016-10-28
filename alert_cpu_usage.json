@@ -1,0 +1,44 @@
+{
+  "AlertDefinition" : 
+  	  {
+  	  	"service_name" : "System", 
+  	  	"component_name" : "NAMENODE",
+  	  	"name": "cpu_usage",
+        "label": "CPU Usage",
+        "description": "This alert is triggered if CPU usage reaches the thresholds.",
+        "interval": 1,
+        "scope": "SERVICE",
+        "enabled": true,
+        "source": {
+          "type": "SCRIPT",
+          "path": "/home/nosuser/scripts/cpu_usage",
+          "parameters" : [
+            {
+              "name": "location.cpu_usage",
+              "display_name": "Path to monitor",
+              "value": "/application/digital",
+              "type": "STRING",
+              "description": "Folder to monitor for QUOTA"
+            },
+            {
+              "name": "cpu_usage.warning.threshold",
+              "display_name": "CPU Usage Warning",
+              "value": 50,
+              "type": "PERCENT",
+              "units": "%",
+              "description": "This alert is trigered if cpu usage reaches 50%",
+              "threshold": "WARNING"
+            },
+            {
+              "name": "cpu_usage.critical.threshold",
+              "display_name": "CPU Usage Warning",
+              "value": 90,
+              "type": "PERCENT",
+              "units": "%",
+              "description": "This alert is trigered if cpu_usage reaches 90%",
+              "threshold": "CRITICAL"
+            }
+          ]
+        }
+      }
+}
